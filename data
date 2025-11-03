@@ -1,1 +1,378 @@
-a
+
+DROP DATABASE IF EXISTS nhomone;
+CREATE DATABASE nhomone CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE nhomone;
+CREATE TABLE phanquyen (
+  id_phanquyen INT AUTO_INCREMENT PRIMARY KEY,
+  ten_phanquyen VARCHAR(50) NOT NULL UNIQUE,
+  capdo TINYINT NOT NULL CHECK (capdo BETWEEN 0 AND 5),
+  mota VARCHAR(255),
+  trangthai ENUM('active', 'inactive') DEFAULT 'active',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO phanquyen (ten_phanquyen, capdo, mota) VALUES
+('super_admin', 5, 'Toàn quyền hệ thống'),
+('admin', 4, 'Quản trị viên'),
+('quanly', 3, 'Quản lý cửa hàng'),
+('nhanvien_banhang', 2, 'Nhân viên bán hàng'),
+('nhanvien_kho', 1, 'Nhân viên kho'),
+('khachhang', 0, 'Khách hàng');
+
+CREATE TABLE nguoidung (
+  id_nguoidung INT AUTO_INCREMENT PRIMARY KEY,
+  id_phanquyen INT NOT NULL DEFAULT 6,
+  tendangnhap VARCHAR(100) UNIQUE NOT NULL,
+  matkhau VARCHAR(255) NOT NULL,
+  hoten VARCHAR(100) NOT NULL,
+  email VARCHAR(100),
+  sodienthoai VARCHAR(15),
+  anh_daidien VARCHAR(500),
+  gioitinh ENUM('nam', 'nu', 'khac'),
+  ngaysinh DATE,
+  diem_tichluy INT DEFAULT 0,
+  hang_thanhvien ENUM('standard', 'silver', 'gold', 'diamond') DEFAULT 'standard',
+  ma_nhanvien VARCHAR(20) UNIQUE,
+  ngay_batdau_lamviec DATE,
+  trangthai ENUM('active', 'inactive', 'locked') DEFAULT 'active',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  ngay_capnhat DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  nguoi_tao INT,
+  FOREIGN KEY (id_phanquyen) REFERENCES phanquyen(id_phanquyen),
+  FOREIGN KEY (nguoi_tao) REFERENCES nguoidung(id_nguoidung)
+);
+
+INSERT INTO nguoidung (id_phanquyen, tendangnhap, matkhau, hoten, email, sodienthoai, ma_nhanvien) VALUES
+(1, 'superadmin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Super Admin', 'superadmin@example.com', '0123456789', 'SA001'),
+(2, 'admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Quản Trị Viên', 'admin@example.com', '0123456788', 'AD001'),
+(3, 'quanly', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Nguyễn Văn Quản Lý', 'quanly@example.com', '0123456787', 'QL001'),
+(2, 'nhanvien1', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Trần Thị Bán Hàng', 'nhanvien1@example.com', '0123456786', 'NV001'),
+(1, 'khovan', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Phạm Văn Kho', 'khovan@example.com', '0123456785', 'NV002'),
+(6, 'khachhang1', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Nguyễn Văn Khách', 'customer@example.com', '0123456784', NULL),
+(6, 'ninh', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Nguyễn Quang Ninh', 'ninh@example.com', '0377238169', NULL),
+(6, 'duy', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Phạm Khang Duy', 'duy@example.com', '0123456783', NULL);
+
+CREATE TABLE chucnang (
+  id_chucnang INT AUTO_INCREMENT PRIMARY KEY,
+  ten_chucnang VARCHAR(100) NOT NULL,
+  ma_chucnang VARCHAR(50) UNIQUE NOT NULL,
+  mota VARCHAR(255),
+  icon VARCHAR(100),
+  route VARCHAR(100),
+  trangthai ENUM('active', 'inactive') DEFAULT 'active',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO chucnang (ten_chucnang, ma_chucnang, mota, route) VALUES
+('Quản lý sản phẩm', 'ql_sanpham', 'Quản lý danh sách sản phẩm', '/admin/products'),
+('Thêm sản phẩm', 'them_sanpham', 'Thêm sản phẩm mới', '/admin/products/create'),
+('Sửa sản phẩm', 'sua_sanpham', 'Sửa thông tin sản phẩm', '/admin/products/edit'),
+('Xoá sản phẩm', 'xoa_sanpham', 'Xoá sản phẩm', '/admin/products/delete'),
+('Quản lý đơn hàng', 'ql_donhang', 'Xem và quản lý đơn hàng', '/admin/orders'),
+('Cập nhật trạng thái đơn', 'capnhat_trangthai', 'Cập nhật trạng thái đơn hàng', '/admin/orders/update-status'),
+('Quản lý kho', 'ql_kho', 'Quản lý tồn kho', '/admin/inventory'),
+('Nhập kho', 'nhap_kho', 'Nhập sản phẩm vào kho', '/admin/inventory/import'),
+('Quản lý khách hàng', 'ql_khachhang', 'Xem thông tin khách hàng', '/admin/customers'),
+('Quản lý khuyến mãi', 'ql_khuyenmai', 'Quản lý chương trình khuyến mãi', '/admin/promotions'),
+('Xem báo cáo', 'xem_baocao', 'Xem báo cáo doanh thu', '/admin/reports'),
+('Quản lý người dùng', 'ql_nguoidung', 'Quản lý tài khoản nhân viên', '/admin/users'),
+('Phân quyền hệ thống', 'phan_quyen', 'Phân quyền cho người dùng', '/admin/permissions');
+
+CREATE TABLE phanquyen_chucnang (
+  id_phanquyen_chucnang INT AUTO_INCREMENT PRIMARY KEY,
+  id_phanquyen INT NOT NULL,
+  id_chucnang INT NOT NULL,
+  ngay_phanquyen DATETIME DEFAULT CURRENT_TIMESTAMP,
+  nguoi_phanquyen INT,
+  UNIQUE KEY unique_phanquyen_chucnang (id_phanquyen, id_chucnang),
+  FOREIGN KEY (id_phanquyen) REFERENCES phanquyen(id_phanquyen),
+  FOREIGN KEY (id_chucnang) REFERENCES chucnang(id_chucnang),
+  FOREIGN KEY (nguoi_phanquyen) REFERENCES nguoidung(id_nguoidung)
+);
+
+INSERT INTO phanquyen_chucnang (id_phanquyen, id_chucnang) VALUES
+(1, 1), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (1, 7), (1, 8), (1, 9), (1, 10), (1, 11), (1, 12), (1, 13),
+(2, 1), (2, 2), (2, 3), (2, 4), (2, 5), (2, 6), (2, 7), (2, 8), (2, 9), (2, 10), (2, 11);
+CREATE TABLE danhmuc (
+  id_danhmuc INT AUTO_INCREMENT PRIMARY KEY,
+  ten_danhmuc VARCHAR(255) NOT NULL,
+  slug_danhmuc VARCHAR(255),
+  anh_danhmuc TEXT,
+  mota_danhmuc TEXT,
+  thutu INT DEFAULT 0,
+  trangthai ENUM('active', 'inactive') DEFAULT 'active',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO danhmuc (ten_danhmuc, slug_danhmuc, trangthai) VALUES
+('SamSung', 'samsung', 'active'),
+('Motorola', 'motorola', 'active'),
+('Nokia', 'nokia', 'active'),
+('Vivo', 'vivo', 'active'),
+('Xiaomi', 'xiaomi', 'active'),
+('Realme', 'realme', 'active'),
+('Oppo', 'oppo', 'active'),
+('Apple', 'apple', 'active');
+
+CREATE TABLE sanpham (
+  id_sanpham INT AUTO_INCREMENT PRIMARY KEY,
+  id_danhmuc INT NOT NULL,
+  ma_sanpham VARCHAR(100) UNIQUE NOT NULL,
+  ten_sanpham VARCHAR(255) NOT NULL,
+  slug_sanpham VARCHAR(255),
+  mota TEXT,
+  thongsokythuat TEXT,
+  trangthai ENUM('active', 'inactive') DEFAULT 'active',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  nguoi_tao INT,
+  FOREIGN KEY (id_danhmuc) REFERENCES danhmuc(id_danhmuc),
+  FOREIGN KEY (nguoi_tao) REFERENCES nguoidung(id_nguoidung)
+);
+
+CREATE TABLE mausac_sanpham (
+  id_mausac INT AUTO_INCREMENT PRIMARY KEY,
+  ten_mausac VARCHAR(255) NOT NULL,
+  ma_mausac VARCHAR(50)
+);
+
+INSERT INTO mausac_sanpham (ten_mausac, ma_mausac) VALUES
+('Đỏ', 'red'), ('Xanh lam', 'blue'), ('Trắng', 'white'), ('Đen', 'black'), 
+('Hồng', 'pink'), ('Vàng', 'yellow'), ('Xanh lục', 'green'), ('Xám', 'gray'), 
+('Tím', 'purple'), ('Bạc', 'silver');
+CREATE TABLE anh_sanpham (
+  id_anhsanpham INT AUTO_INCREMENT PRIMARY KEY,
+  id_sanpham INT NOT NULL,
+  id_mausac INT NOT NULL,
+  url_anh TEXT NOT NULL,
+  ten_anh VARCHAR(255),
+  thutu INT DEFAULT 0,
+  is_anhchinh TINYINT(1) DEFAULT 0,
+  gia DECIMAL(12,2) NOT NULL,
+  gia_giam DECIMAL(12,2) DEFAULT 0,
+  soluong_ton INT NOT NULL DEFAULT 0,
+  trangthai ENUM('active', 'inactive') DEFAULT 'active',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_sanpham) REFERENCES sanpham(id_sanpham) ON DELETE CASCADE,
+  FOREIGN KEY (id_mausac) REFERENCES mausac_sanpham(id_mausac)
+);
+CREATE TABLE dia_chi (
+  id_diachi INT AUTO_INCREMENT PRIMARY KEY,
+  id_nguoidung INT NOT NULL,
+  ten_nguoinhan VARCHAR(100) NOT NULL,
+  sdt_nguoinhan VARCHAR(15) NOT NULL,
+  diachi_chitiet TEXT NOT NULL,
+  tinh_thanh VARCHAR(100),
+  quan_huyen VARCHAR(100),
+  phuong_xa VARCHAR(100),
+  mac_dinh TINYINT(1) DEFAULT 0,
+  loai_diachi ENUM('nha_rieng', 'van_phong', 'khac') DEFAULT 'nha_rieng',
+  trangthai ENUM('active', 'inactive') DEFAULT 'active',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_nguoidung) REFERENCES nguoidung(id_nguoidung) ON DELETE CASCADE
+);
+CREATE TABLE khuyenmai (
+  id_khuyenmai INT AUTO_INCREMENT PRIMARY KEY,
+  ma_khuyenmai VARCHAR(50) UNIQUE NOT NULL,
+  ten_khuyenmai VARCHAR(255) NOT NULL,
+  loai_khuyenmai ENUM('phantram', 'tienmat', 'freeship') NOT NULL,
+  giatri DECIMAL(10,2) NOT NULL,
+  giatri_toithieu DECIMAL(12,2) DEFAULT 0,
+  giatri_toida DECIMAL(12,2) DEFAULT NULL,
+  soluot_sudung INT DEFAULT NULL,
+  soluot_dasudung INT DEFAULT 0,
+  mota TEXT,
+  ngay_batdau DATETIME NOT NULL,
+  ngay_ketthuc DATETIME NOT NULL,
+  apdung_cho ENUM('tatca', 'danhmuc', 'sanpham') DEFAULT 'tatca',
+  trangthai ENUM('active', 'inactive', 'hetluot', 'hethieuluc') DEFAULT 'active',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO khuyenmai (ma_khuyenmai, ten_khuyenmai, loai_khuyenmai, giatri, giatri_toithieu, giatri_toida, soluot_sudung, ngay_batdau, ngay_ketthuc) VALUES
+('GIAM10', 'Giảm 10% đơn hàng', 'phantram', 10.00, 500000, 100000, 1000, '2024-01-01', '2024-12-31'),
+('FREESHIP', 'Miễn phí vận chuyển', 'freeship', 0, 300000, NULL, 500, '2024-01-01', '2024-12-31'),
+('GIAM50K', 'Giảm 50.000đ', 'tienmat', 50000, 200000, 50000, 200, '2024-01-01', '2024-12-31');
+CREATE TABLE khuyenmai_apdung (
+  id_apdung INT AUTO_INCREMENT PRIMARY KEY,
+  id_khuyenmai INT NOT NULL,
+  id_danhmuc INT NULL,
+  id_sanpham INT NULL,
+  ngay_apdung DATETIME DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY unique_khuyenmai_sanpham (id_khuyenmai, id_sanpham),
+  UNIQUE KEY unique_khuyenmai_danhmuc (id_khuyenmai, id_danhmuc),
+  FOREIGN KEY (id_khuyenmai) REFERENCES khuyenmai(id_khuyenmai) ON DELETE CASCADE,
+  FOREIGN KEY (id_danhmuc) REFERENCES danhmuc(id_danhmuc) ON DELETE CASCADE,
+  FOREIGN KEY (id_sanpham) REFERENCES sanpham(id_sanpham) ON DELETE CASCADE
+);
+CREATE TABLE giohang (
+  id_giohang INT AUTO_INCREMENT PRIMARY KEY,
+  id_nguoidung INT NOT NULL,
+  id_anhsanpham INT NOT NULL,
+  soluong INT NOT NULL DEFAULT 1,
+  ngay_them DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_nguoidung) REFERENCES nguoidung(id_nguoidung) ON DELETE CASCADE,
+  FOREIGN KEY (id_anhsanpham) REFERENCES anh_sanpham(id_anhsanpham)
+);
+CREATE TABLE donhang (
+  id_donhang INT AUTO_INCREMENT PRIMARY KEY,
+  ma_donhang VARCHAR(50) UNIQUE NOT NULL,
+  id_nguoidung INT NOT NULL,
+  id_diachi INT,
+  tongtien DECIMAL(12,2) NOT NULL,
+  phi_vanchuyen DECIMAL(10,2) DEFAULT 0,
+  giam_gia DECIMAL(10,2) DEFAULT 0,
+  thanhtien DECIMAL(12,2) NOT NULL,
+  hinhthuc_thanhtoan ENUM('cod', 'momo', 'banking') DEFAULT 'cod',
+  trangthai ENUM('choduyet', 'daxacnhan', 'danggiaohang', 'hoanthanh', 'huy') DEFAULT 'choduyet',
+  ngaydathang DATETIME DEFAULT CURRENT_TIMESTAMP,
+  ngay_duyet DATETIME,
+  ngay_giaohang DATETIME,
+  ngay_nhanhang DATETIME,
+  ghichu TEXT,
+  FOREIGN KEY (id_nguoidung) REFERENCES nguoidung(id_nguoidung),
+  FOREIGN KEY (id_diachi) REFERENCES dia_chi(id_diachi)
+);
+CREATE TABLE donhang_khuyenmai (
+  id_donhang_khuyenmai INT AUTO_INCREMENT PRIMARY KEY,
+  id_donhang INT NOT NULL,
+  id_khuyenmai INT NOT NULL,
+  ma_khuyenmai_sudung VARCHAR(50) NOT NULL,
+  giatri_giam DECIMAL(10,2) NOT NULL,
+  loai_giam ENUM('phantram', 'tienmat', 'freeship') NOT NULL,
+  ngay_apdung DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_donhang) REFERENCES donhang(id_donhang) ON DELETE CASCADE,
+  FOREIGN KEY (id_khuyenmai) REFERENCES khuyenmai(id_khuyenmai)
+);
+CREATE TABLE chitiet_donhang (
+  id_chitiet_donhang INT AUTO_INCREMENT PRIMARY KEY,
+  id_donhang INT NOT NULL,
+  id_anhsanpham INT NOT NULL,
+  soluong INT NOT NULL,
+  gia DECIMAL(10,2) NOT NULL,
+  giam_gia DECIMAL(10,2) DEFAULT 0,
+  thanhtien DECIMAL(10,2) NOT NULL,
+  FOREIGN KEY (id_donhang) REFERENCES donhang(id_donhang) ON DELETE CASCADE,
+  FOREIGN KEY (id_anhsanpham) REFERENCES anh_sanpham(id_anhsanpham)
+);
+CREATE TABLE sanpham_yeuthich (
+  id_yeuthich INT AUTO_INCREMENT PRIMARY KEY,
+  id_nguoidung INT NOT NULL,
+  id_sanpham INT NOT NULL,
+  ngay_them DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_nguoidung) REFERENCES nguoidung(id_nguoidung) ON DELETE CASCADE,
+  FOREIGN KEY (id_sanpham) REFERENCES sanpham(id_sanpham) ON DELETE CASCADE,
+  UNIQUE KEY unique_yeuthich (id_nguoidung, id_sanpham)
+);
+CREATE TABLE thanhtoan_momo (
+  id_thanhtoan_momo INT AUTO_INCREMENT PRIMARY KEY,
+  id_donhang INT NOT NULL,
+  ma_doi_tac VARCHAR(50) NOT NULL,
+  ma_don_hang_momo VARCHAR(50) NOT NULL,
+  so_tien DECIMAL(10,2) NOT NULL,
+  thong_tin_don_hang VARCHAR(255) NOT NULL,
+  ma_yeu_cau VARCHAR(50),
+  ma_giao_dich VARCHAR(50),
+  ma_ket_qua INT,
+  thong_bao VARCHAR(255),
+  loai_thanh_toan VARCHAR(50),
+  ma_gio_hang VARCHAR(50),
+  trangthai ENUM('cho_xu_ly', 'thanh_cong', 'that_bai') DEFAULT 'cho_xu_ly',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  ngay_capnhat DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_donhang) REFERENCES donhang(id_donhang)
+);
+CREATE TABLE slider (
+  id_slider INT AUTO_INCREMENT PRIMARY KEY,
+  ten_slider VARCHAR(255),
+  url_anh TEXT NOT NULL,
+  id_sanpham INT,
+  lien_ket VARCHAR(500),
+  thutu INT DEFAULT 0,
+  trangthai ENUM('active', 'inactive') DEFAULT 'active',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_sanpham) REFERENCES sanpham(id_sanpham)
+);
+CREATE TABLE theodoi_donhang (
+  id_theodoi INT AUTO_INCREMENT PRIMARY KEY,
+  id_donhang INT NOT NULL,
+  trangthai VARCHAR(100) NOT NULL,
+  mota TEXT,
+  id_nguoidung_capnhat INT,
+  thoigian_capnhat DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_donhang) REFERENCES donhang(id_donhang) ON DELETE CASCADE,
+  FOREIGN KEY (id_nguoidung_capnhat) REFERENCES nguoidung(id_nguoidung)
+);
+CREATE TABLE danhgia_sanpham (
+  id_danhgia INT AUTO_INCREMENT PRIMARY KEY,
+  id_nguoidung INT NOT NULL,
+  id_sanpham INT NOT NULL,
+  diem INT NOT NULL CHECK (diem BETWEEN 1 AND 5),
+  noidung TEXT,
+  trangthai ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_nguoidung) REFERENCES nguoidung(id_nguoidung) ON DELETE CASCADE,
+  FOREIGN KEY (id_sanpham) REFERENCES sanpham(id_sanpham) ON DELETE CASCADE
+);
+
+CREATE TABLE tinh_toan_khuyenmai (
+  id_tinhtoan INT AUTO_INCREMENT PRIMARY KEY,
+  id_nguoidung INT NOT NULL,
+  id_khuyenmai INT NOT NULL,  -- THÊM KHÓA NGOẠI
+  tong_tien_gio_hang DECIMAL(12,2) NOT NULL,
+  gia_tri_giam_du_kien DECIMAL(10,2) DEFAULT 0,
+  phi_van_chuyen_du_kien DECIMAL(10,2) DEFAULT 0,
+  tong_thanh_toan_du_kien DECIMAL(12,2) NOT NULL,
+  thoi_gian_tinh_toan DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_nguoidung) REFERENCES nguoidung(id_nguoidung),
+  FOREIGN KEY (id_khuyenmai) REFERENCES khuyenmai(id_khuyenmai) 
+);
+
+CREATE TABLE phieunhap (
+  id_phieunhap INT AUTO_INCREMENT PRIMARY KEY,
+  ma_phieunhap VARCHAR(50) UNIQUE NOT NULL,
+  id_nhanvien_nhap INT NOT NULL,
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_nhanvien_nhap) REFERENCES nguoidung(id_nguoidung)
+);
+
+CREATE TABLE chitiet_phieunhap (
+  id_chitiet_phieunhap INT AUTO_INCREMENT PRIMARY KEY,
+  id_phieunhap INT NOT NULL,
+  id_sanpham INT NOT NULL,
+  soluong_nhap INT NOT NULL CHECK (soluong_nhap > 0),
+  gia_nhap DECIMAL(12,2) NOT NULL,
+  FOREIGN KEY (id_phieunhap) REFERENCES phieunhap(id_phieunhap) ON DELETE CASCADE,
+  FOREIGN KEY (id_sanpham) REFERENCES sanpham(id_sanpham)
+);
+
+CREATE TABLE phieuxuat (
+  id_phieuxuat INT AUTO_INCREMENT PRIMARY KEY,
+  ma_phieuxuat VARCHAR(50) UNIQUE NOT NULL,
+  id_donhang INT NOT NULL,
+  id_nhanvien_xuat INT NOT NULL,
+  ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (id_donhang) REFERENCES donhang(id_donhang),
+  FOREIGN KEY (id_nhanvien_xuat) REFERENCES nguoidung(id_nguoidung)
+);
+
+CREATE TABLE chitiet_phieuxuat (
+  id_chitiet_phieuxuat INT AUTO_INCREMENT PRIMARY KEY,
+  id_phieuxuat INT NOT NULL,
+  id_sanpham INT NOT NULL,
+  soluong_xuat INT NOT NULL CHECK (soluong_xuat > 0),
+  FOREIGN KEY (id_phieuxuat) REFERENCES phieuxuat(id_phieuxuat) ON DELETE CASCADE,
+  FOREIGN KEY (id_sanpham) REFERENCES sanpham(id_sanpham)
+);
+CREATE TABLE hotro_khachhang (
+    id_hotro INT AUTO_INCREMENT PRIMARY KEY,
+    id_khachhang INT NOT NULL,
+    id_nhanvien_hotro INT,
+    tieu_de VARCHAR(255) NOT NULL,
+    noi_dung TEXT NOT NULL,
+    trang_thai ENUM('moi', 'dang_xu_ly', 'hoan_tat') DEFAULT 'moi',
+    ngay_tao DATETIME DEFAULT CURRENT_TIMESTAMP,
+    ngay_cap_nhat DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    FOREIGN KEY (id_khachhang) REFERENCES nguoidung(id_nguoidung),
+    FOREIGN KEY (id_nhanvien_hotro) REFERENCES nguoidung(id_nguoidung)
+);

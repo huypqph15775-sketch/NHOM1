@@ -1,0 +1,72 @@
+.left-container{
+    box-shadow: 0 0 5px rgb(150, 150, 150);
+}
+.nav-pills .nav-link{
+    color: #000;
+}
+.nav-pills .nav-link.active{
+    background-color: #f7712e;
+}
+
+.img-account{
+    text-align: center;
+}
+.img-account img{
+    width: 200px;
+}
+#loadFile{
+    display: none
+}
+
+.nav-pills{
+    margin-right: 0 !important;
+}
+
+.myaccount-content {
+    padding: 20px 15px;
+}
+
+.myaccount-content form {
+  margin-top: -20px;
+}
+
+.myaccount-content h3 {
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+.myaccount-content p{
+    padding: 10px 0;
+}
+.myaccount-content .welcome a:hover {
+  color: #ff6e21;
+}
+
+.myaccount-content .welcome strong {
+  font-weight: 600;
+  color: #ff6e21;
+}
+
+a.signup{
+    color: #2f80ed !important;
+}
+
+.myaccount-content i{
+    font-size: 16px;
+    color: #f7712e;
+}
+
+#v-pills-editpw input{
+    width: 50%;
+}
+
+.breadcrumb-item a{
+    color: #2f80ed !important;
+}
+.breadcrumb-item a:hover{
+    color: #2f80ed !important;
+}
+.breadcrumb-item.active{
+    color: rgb(150, 150, 150) !important;
+}

@@ -1,0 +1,77 @@
+/* Form đăng ký – tone trắng + xanh lam */
+
+body {
+    background: #f1f6ff; /* nền sáng xanh nhạt */
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* CARD FORM */
+.card {
+    border: none;
+    border-radius: 15px;
+    padding: 25px;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* TIÊU ĐỀ */
+.card h3 {
+    color: #2A7FFF;
+    font-weight: 700;
+}
+
+/* LABEL */
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+/* INPUT + SELECT */
+.form-control,
+.form-select {
+    border-radius: 10px;
+    padding: 12px;
+    border: 1.5px solid #d9d9d9;
+    transition: 0.25s ease;
+    font-size: 15px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #2A7FFF;
+    box-shadow: 0 0 6px rgba(42,127,255,0.5);
+}
+
+/* BUTTON */
+button.btn-primary {
+    background: #2A7FFF;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+button.btn-primary:hover {
+    background: #1A64D6;
+    box-shadow: 0 4px 12px rgba(42,127,255,0.35);
+}
+
+/* LINK đăng nhập */
+p a {
+    color: #2A7FFF;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Tối ưu hiển thị trên mobile */
+@media (max-width: 480px) {
+    .card {
+        padding: 20px 15px;
+    }
+}

@@ -1,0 +1,13 @@
+.breadcrumb{
+    margin: 0;
+}
+.breadcrumb-link{
+    text-decoration: none;
+}
+label{
+    color: #1c00d2;
+    font-weight: 550;
+}
+textarea{
+    height: 150px;
+}

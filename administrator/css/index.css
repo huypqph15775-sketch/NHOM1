@@ -1,0 +1,48 @@
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidebar-nav{
+    width: 260px !important;
+}
+
+.sidebar-link{
+    display: flex;
+    align-items: center;
+}
+.sidebar-link .right-icon{
+    display: inline-flex;
+    transition: all ease 0.3s;
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon{
+    transform: rotate(180deg);
+}
+
+.offcanvas-title img{
+    width: 60px;
+}
+
+@media (min-width:992px) {
+    body{
+        overflow: auto !important;
+    }
+
+    .offcanvas-backdrop::before{
+        display: none;
+    }
+
+    section{
+        margin-left: 260px;
+    }
+
+    .sidebar-nav{
+        transform: none;
+        visibility: visible !important;
+        top: 56px;
+        height: calc(100%-56px);
+    }
+}

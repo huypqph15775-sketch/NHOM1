@@ -1,0 +1,234 @@
+/* ================== BASE ================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6fb;
+    /* nền xám rất nhẹ cho admin */
+}
+
+/* ================== SIDEBAR ================== */
+.sidebar-nav {
+    width: 260px !important;
+    background: #0099FF;
+    /* màu chủ đạo giống logo PhoneStore */
+    color: #ffffff;
+}
+
+/* Logo trong offcanvas / sidebar */
+.offcanvas-title img {
+    width: 60px;
+}
+
+/* Wrapper của menu trong sidebar (Bootstrap thường dùng .navbar-nav) */
+.sidebar-nav .navbar-nav {
+    padding: 0.75rem 0.5rem;
+}
+
+/* Link trong menu sidebar */
+.sidebar-nav .navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #eaf5ff;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0.55rem 0.9rem;
+    border-radius: 8px;
+    margin: 2px 6px;
+    background: transparent;
+    border: none;
+}
+
+/* Icon bên trái */
+.sidebar-nav .navbar-nav .nav-link i,
+.sidebar-nav .navbar-nav .nav-link svg {
+    font-size: 18px;
+}
+
+/* Icon mũi tên bên phải (dropdown) */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link .right-icon {
+    display: inline-flex;
+    margin-left: auto;
+    transition: all ease 0.3s;
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+    transform: rotate(180deg);
+}
+
+/* Hover: chỉ sáng nhẹ, không đổi layout */
+.sidebar-nav .navbar-nav .nav-link:hover {
+    background: #ffffff;
+    color: #0099FF;
+}
+
+/* Active: mục đang đứng */
+.sidebar-nav .navbar-nav .nav-link.active,
+.sidebar-nav .navbar-nav .nav-link.show {
+    background: #ffffff;
+    color: #0099FF;
+}
+
+/* Nhóm tiêu đề trong sidebar (nếu có) */
+.sidebar-nav .text-muted,
+.sidebar-nav .nav-section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #b9ddff;
+    padding: 0.75rem 1rem 0.25rem;
+}
+
+/* ================== LAYOUT PC (>= 992px) ================== */
+@media (min-width: 992px) {
+    body {
+        overflow: auto !important;
+    }
+
+    /* Tắt mờ nền của offcanvas khi ở chế độ desktop */
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+
+    /* Nội dung chính lệch sang phải 260px để chừa chỗ sidebar */
+    section,
+    main,
+    .admin-content {
+        margin-left: 260px;
+        padding: 20px 24px;
+    }
+
+    .sidebar-nav {
+        transform: none;
+        /* luôn hiện ở PC */
+        visibility: visible !important;
+        top: 56px;
+        /* cao bằng navbar trên admin (nếu có) */
+        height: calc(100vh - 56px);
+        /* fix lại: chiếm hết chiều cao màn hình trừ header */
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* ================== TOP NAVBAR (NẾU CÓ) ================== */
+.navbar.admin-topbar {
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+.navbar.admin-topbar .navbar-brand {
+    font-weight: 700;
+    color: #0099FF;
+}
+
+.navbar.admin-topbar .nav-link {
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.navbar.admin-topbar .nav-link:hover {
+    color: #0099FF;
+}
+
+/* ================== DASHBOARD CARD ================== */
+.card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    background: #ffffff;
+}
+
+.card .card-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 0.25rem;
+}
+
+.card .card-footer {
+    background: transparent;
+    border-top: 0;
+}
+
+/* Thẻ thống kê (số đơn, doanh thu...) – nếu muốn dùng 1 style chung */
+.card-stat {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-stat .icon-bg {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    opacity: 0.15;
+    font-size: 60px;
+}
+
+/* Màu gợi ý cho từng loại (nếu anh muốn bỏ inline-style trong dashboard.php thì dùng class này) */
+.card-stat.primary {
+    background: linear-gradient(135deg, #0099FF, #00c9ff);
+    color: #ffffff;
+}
+
+.card-stat.success {
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    color: #ffffff;
+}
+
+.card-stat.warning {
+    background: linear-gradient(135deg, #facc15, #f97316);
+    color: #ffffff;
+}
+
+.card-stat.danger {
+    background: linear-gradient(135deg, #ef4444, #f97373);
+    color: #ffffff;
+}
+
+/* ================== BẢNG, TEXT PHỤ ================== */
+.table thead {
+    background: #eff6ff;
+}
+
+.table thead th {
+    border-bottom-width: 0;
+    color: #374151;
+    font-weight: 600;
+}
+
+.table tbody tr:hover {
+    background: #f9fafb;
+}
+
+/* Badge trạng thái đơn hàng... */
+.badge-status {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-status.shipping {
+    background: #e0f2fe;
+    color: #1d4ed8;
+}
+
+.badge-status.done {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-status.cancel {
+    background: #fee2e2;
+    color: #b91c1c;
+}

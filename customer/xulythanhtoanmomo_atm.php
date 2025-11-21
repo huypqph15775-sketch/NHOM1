@@ -33,8 +33,13 @@ $orderInfo = "Thanh toán qua MoMo ATM";
 $amount = $_POST['total'];
 $orderId = time() ."";
 $order_id = $_POST['order_id'];
+<<<<<<< HEAD
 $redirectUrl = "http://localhost/phonestoree/momo.php?order_id=$order_id";
 $ipnUrl = "http://localhost/phonestoree/momo.php?order_id=$order_id";
+=======
+$redirectUrl = "http://localhost:8080/test/momo.php?order_id=$order_id";
+$ipnUrl = "http://localhost:8080/test/momo.php?order_id=$order_id";
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 $extraData = "";
 
 
@@ -64,6 +69,10 @@ $extraData = "";
 
     //Just a example, please check more in there
 
+<<<<<<< HEAD
     header('Location: ' . $jsonResult['payUrl']);
+=======
+    
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 
 ?>

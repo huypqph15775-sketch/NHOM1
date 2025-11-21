@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 require_once '../includes/auth.php';
 checkAdminLogin();
@@ -5,6 +6,38 @@ checkAdminLogin();
 checkPermission('admin');
 
 
+=======
+
+<?php
+if(!isset($_SESSION['admin_id'])){
+    echo "<script>window.open('signin.php', '_self')</script>";
+}
+else{
+    if(isset($_SESSION['admin_level'])){
+        if($_SESSION['admin_level']!='Quản lý'){
+            echo "<script>alert('Bạn không đủ quyền truy cập vào chức năng này. ')</script>";
+            echo "<script>window.open('index.php?admin_list','_self')</script>";
+        }
+        else{
+            if(isset($_GET['admin_edit'])){
+                $admin_id = $_GET['admin_edit'];
+                $get_admin = "select * from admin where admin_id='$admin_id'";
+                $run_admin = mysqli_query($conn, $get_admin);
+                $row_admin = mysqli_fetch_array($run_admin);
+                $admin_name = $row_admin['admin_name'];
+                $admin_img = $row_admin['admin_img'];
+                $admin_email = $row_admin['admin_email'];
+                $admin_user_name = $row_admin['admin_user_name'];
+                $admin_password = $row_admin['admin_password'];
+                $admin_address = $row_admin['admin_address'];
+                $admin_contact = $row_admin['admin_contact'];
+                $admin_level = $row_admin['admin_level'];
+            }
+        }
+    }  
+}
+?>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
             <div class="row">
                 <div class="col-md-12">
                     <nav aria-label="breadcrumb">

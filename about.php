@@ -38,7 +38,11 @@
                             </div>
                         </div>
                         <div class="col-12 col-lg-6">
+<<<<<<< HEAD
                             <h2 style="color: #31c27c;" class="text-head">
+=======
+                            <h2 style="color: #0099FF;" class="text-head">
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
                                 VỀ PHONE STORE
                             </h2>
 							

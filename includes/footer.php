@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+    <!-- footer -->
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     <footer class="footer mt-4">
       <div class="container py-3">
         <div class="row p-4">
@@ -22,7 +26,11 @@
           </div>
           <div style="color: #ffffffff" class="col-12 col-md-4">
             <ul>
+<<<<<<< HEAD
               <li style="color: #ffffffff"><b style="color: #000000ff">Tổng đài hỗ trợ (Miễn phí gọi):</b> </li>
+=======
+              <li style="color: #ffffffff"><b style="color: #ffffffff">Tổng đài hỗ trợ (Miễn phí gọi):</b> </li>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
               <div class="row">
                 <div class="col-6">Gọi mua:</div>
                 <div class="col-6">
@@ -71,8 +79,12 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <div class="copyright pt-3">
         <p>@2025:Phone Store</p>
       </div>
     </footer>
     
+=======
+    </footer>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b

@@ -199,7 +199,16 @@
                                 <label class="form-check-label" for="inlineRadio1">Giao tận nơi</label>
                               </div>
                             </li>
+<<<<<<< HEAD
                            
+=======
+                            <li class="nav-item" role="presentation">
+                              <div class="form-check form-check-inline nav-link bg-white text-dark ms-4 my-2" style="padding: 0;" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+                                <input class="form-check-input" type="radio" name="choose_delivery_location" id="inlineRadio2" value="Nhận tại siêu thị" >
+                                <label class="form-check-label" for="inlineRadio2">Nhận tại siêu thị</label>
+                              </div>
+                            </li>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
                           </ul>
                           <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -210,12 +219,15 @@
                             </div>
                             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab"></div>
                           </div>
+<<<<<<< HEAD
 
                           <div class="mb-3">
   <label class="form-label fw-bold">Nhập mã giảm giá</label>
   <input type="text" class="form-control" name="voucher_code" id="voucher_code" placeholder="Nhập mã...">
 </div>
 <input type="hidden" name="total_after_discount" id="total_after_discount" value="<?php echo $total_price; ?>">
+=======
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
                           <div class="form-check mt-2 mb-4">
                             <input class="form-check-input" type="checkbox" id="check1" name="call_receiver_new" value="Gọi người khác" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
                             <label class="form-check-label">Gọi người khác nhận hàng (nếu có)</label>
@@ -284,6 +296,7 @@
                 </div>
     </section>
     
+<<<<<<< HEAD
    <?php
 if (isset($_SESSION['customer_id']) && isset($_POST['order'])) {
     $customer_id   = $_SESSION['customer_id'];
@@ -430,3 +443,60 @@ if (isset($_SESSION['customer_id']) && isset($_POST['order'])) {
     }
 }
 ?>
+=======
+    <?php
+    if(isset($_SESSION['customer_id'])&&isset($_POST['order'])){
+        $customer_id = $_SESSION['customer_id'];
+        $order_no = mt_rand();
+        $status = "Đang chờ";
+        $customer_name = $_POST['receiver'];
+        $customer_sex = $_POST['receiver_sex'];
+        if(!isset($_POST['call_receiver_new'])){
+            $receiver = $_POST['receiver'];
+            $receiver_phone = $_POST['receiver_phone'];
+            $receiver_sex = $_POST['receiver_sex'];
+        }
+        else{
+            $receiver = $_POST['receiver_new'];
+            $receiver_phone = $_POST['receiver_phone_new'];
+            $receiver_sex = $_POST['receiver_sex_new'];
+        }
+        if($_POST['choose_delivery_location']=="Giao tận nơi"){
+            $delivery_location = $_POST['delivery_location'];
+        }
+        else{
+            $delivery_location = "Siêu thị: Nguyên Xá 3, phường Minh Khai, quận Từ Liêm, Tp Hà Nội ";
+        }
+        $total_price = $_POST['total_price'];
+        $insert_customer_order = "insert into customer_orders
+            (customer_id,  order_date, total_price, status, order_no, receiver, receiver_sex, receiver_phone, delivery_location)
+            values ('$customer_id', NOW(), '$total_price', '$status', '$order_no', '$receiver', '$receiver_sex', '$receiver_phone', '$delivery_location')";
+        $run_customer_order = mysqli_query($conn, $insert_customer_order);
+        $select_order_id = "select * from customer_orders where customer_id = '$customer_id' and order_no='$order_no'";
+        $run_order_id = mysqli_query($conn, $select_order_id);
+        $row_order_id = mysqli_fetch_array($run_order_id);
+        $order_id = $row_order_id['order_id'];
+        // if(isset($_POST['coupon_id'])){
+        //   $coupon_id = $_POST['coupon_id'];
+        //   $add_used = "update coupon set coupon_used=coupon_used+1 where coupon_id='$coupon_id'";
+        //   $run_used = mysqli_query($conn, $add_used);
+        // }
+        $select_cart = "select * from cart where customer_id = '$customer_id'";
+        $run_cart = mysqli_query($conn, $select_cart);
+        while($row_cart = mysqli_fetch_array($run_cart)){
+            $product_id = $row_cart['product_id'];
+            $color = $row_cart['color'];
+            $quantity = $row_cart['quantity'];
+            $insert_customer_order_product = "insert into customer_order_products
+            (order_id, product_id, color, quantity)
+            values ('$order_id', '$product_id', '$color', '$quantity')";
+            $run_customer_order_product = mysqli_query($conn, $insert_customer_order_product);
+            $delete_cart = "delete from cart where customer_id = '$customer_id'";
+            $run_delete = mysqli_query($conn, $delete_cart);
+        }
+        if($run_delete){
+            echo "<script>window.open('order_success.php?customer_id=$customer_id&order_id=$order_id', '_self')</script>";
+          }
+    }
+    ?>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b

@@ -1,6 +1,10 @@
 .cart-top a {
     text-decoration: none;
+<<<<<<< HEAD
     color: #ffffff !important;
+=======
+    color: #0099FF !important;
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 }
 
 .cart-top p {
@@ -19,7 +23,11 @@ a.product-name {
 
 span.color {
     font-size: 14px;
+<<<<<<< HEAD
     color: #2f80ed;
+=======
+    color: #0099FF;
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 }
 
 .item-price {

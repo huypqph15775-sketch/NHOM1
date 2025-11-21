@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>SmartPhone Store</title>
     <!-- favicon -->
     <link rel="icon" href="../images/phonesmart.png">
+=======
+    <title>Phone Store</title>
+    <!-- favicon -->
+    <link rel="icon" href="../images/phone.png">
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- bootstrap js -->
@@ -53,11 +59,14 @@
             $receiver_phone = $row_select_order['receiver_phone'];
             $delivery_location = $row_select_order['delivery_location'];
             $payment_type = $row_select_order['payment_type'];
+<<<<<<< HEAD
             $voucher_code = $row_select_order['voucher_code'];
 $discount_value = $row_select_order['discount_value'];
 $total_after_discount = $row_select_order['total_after_discount'];
 $total_after_discount_format = currency_format($total_after_discount);
 $discount_value_format = currency_format($discount_value);
+=======
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
         }
     ?>
     <!-- section myorder -->
@@ -143,6 +152,7 @@ $discount_value_format = currency_format($discount_value);
                 <?php
                     }
                 ?>
+<<<<<<< HEAD
             <div class="row mb-3">
     <div class="col-9 text-end">
         <span class="d-block">Tạm tính: </span>
@@ -174,6 +184,18 @@ $discount_value_format = currency_format($discount_value);
     </div>
 </div>
 
+=======
+                <div class="row mb-3">
+                    <div class="col-9 text-end">
+                        <span class="d-block fw-bold">Tổng tiền: </span>
+                        <span class="d-block fw-bold">Hình thức thanh toán: </span>
+                    </div>
+                    <div class="col-3 text-end">
+                        <span class="d-block fw-bold text-danger"><?= $total_price_format; ?></span>
+                        <span class="d-block fw-bold text-primary"><?= $payment_type; ?></span>
+                    </div>
+                </div>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
                 <hr class="dropdown-divider mb-3"></hr>
                 <span class="d-block fw-bold">Địa chỉ và thông tin người nhận hàng: </span>
                 <ul>

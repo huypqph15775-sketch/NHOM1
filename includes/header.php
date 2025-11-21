@@ -6,7 +6,10 @@
   include ("functions/functions.php");
 ?>
 <?php
+<<<<<<< HEAD
 
+=======
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 if(isset($_SESSION['customer_id'])){
   $customer_id = $_SESSION['customer_id'];
   $get_account_status = "select * from customer where customer_id = '$customer_id'";
@@ -50,7 +53,11 @@ if(isset($_SESSION['customer_id'])){
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 action-menu">
                     <form action="" method="get" class="search-form" >
                         <input class="form-control me-2" style="width: 262px" name="key" type="search" placeholder="Bạn tìm gì..." aria-label="Search" value="<?php if(isset($_GET['key'])){$key=$_GET['key']; echo "$key";}; ?>">
+<<<<<<< HEAD
                         <button class="btn btn-outline-success search-btn" name="search" style="background-color: #0099FF">
+=======
+                        <button class="btn btn-outline-success search-btn" name="search" style="background-color: #248addff">
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
                             <i class="fas fa-search"></i>
                         </button>
                       </form>
@@ -264,7 +271,11 @@ if(isset($_SESSION['customer_id'])){
         }
         else{
           echo "<script>alert('Bạn cần đăng nhập để thực hiện chức năng này')</script>";
+<<<<<<< HEAD
         }http://localhost:8080/Nhom10/index.php
+=======
+        }
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
       }
 
       if(isset($_POST['delete_favorite'])){

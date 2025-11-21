@@ -49,8 +49,13 @@ if(isset($_POST['register'])){
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
   <title>Đăng ký - SmartPhone Store</title>
   <link rel="icon" href="images/smartphone.png">
+=======
+  <title>Đăng ký - Phone Store</title>
+  <link rel="icon" href="images/phone.png">
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/signup.css">

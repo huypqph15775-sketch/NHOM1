@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Phone Store</title>
+=======
+    <title>SmartPhone Store</title>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     <!-- favicon -->
     <link rel="icon" href="../images/phone.png">
     <!-- bootstrap css -->

@@ -31,8 +31,13 @@ $orderInfo = "Thanh toán qua mã QR MoMo";
 $amount = "10000";
 $orderId = time() ."";
 $customer_id= $_POST['customer_id'];
+<<<<<<< HEAD
 $redirectUrl = "http://localhost/phonestoree/customer/order_success.php?customer_id=$customer_id&order_id=$orderId ";
 $ipnUrl = "http://localhost/phonestoree/customer/order_success.php";
+=======
+$redirectUrl = "http://localhost:8080/test/customer/order_success.php?customer_id=$customer_id&order_id=$orderId ";
+$ipnUrl = "http://localhost:8080/test/customer/order_success.php";
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 $extraData = "";
 
     $requestId = time() . "";

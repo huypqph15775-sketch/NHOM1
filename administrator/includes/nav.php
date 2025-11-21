@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
@@ -49,6 +50,26 @@ $current_user = getCurrentUser();
     </a>
 </li>
 <?php endif; ?>
+=======
+session_start();
+date_default_timezone_set("Asia/Ho_Chi_Minh");  
+include("includes/database.php");
+include("functions/functions.php");
+
+?>
+<?php
+if(!isset($_SESSION['admin_id'])){
+    echo "<script>window.open('signin.php', '_self')</script>";
+}
+?>
+<?php
+session_start();
+$current_user = $_SESSION['username'] ?? null;
+
+?>
+
+
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
  <!-- navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="background-color: #66CC66">
         <div class="container-fluid" >
@@ -57,7 +78,11 @@ $current_user = getCurrentUser();
                 <span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span>
             </button>
             <!--  -->
+<<<<<<< HEAD
           <a class="navbar-brand fw-bold me-auto" href="index.php?dashboard">SmartPhone Store</a>
+=======
+          <a class="navbar-brand fw-bold me-auto" href="index.php?dashboard">Phone Store</a>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -226,6 +251,7 @@ $current_user = getCurrentUser();
                      
                     </li>
                     <!-- khuyenmai -->
+<<<<<<< HEAD
                    <li>
     <a href="index.php?voucher_list" class="nav-link px-3">
         <span style="color:#00FFFF;font-size:22px" class="me-2"><i class="far fa-money-bill-alt"></i></span>
@@ -233,6 +259,14 @@ $current_user = getCurrentUser();
     </a>
 </li>
 
+=======
+                    <li>
+                        <a href="index.php?" class="nav-link px-3 active">
+                            <span style="color:#00FFFF;font-size:22px" class="me-2"><i class="far fa-money-bill-alt"></i></span>
+                            <span style="font-size:22px"> khuyen mai</span>
+                        </a>
+                    </li>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
                     <!-- kho -->
                      <li>
                         <a href="index.php?" class="nav-link px-3 active">

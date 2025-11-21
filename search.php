@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Phone Store |  Về Phone Store</title>
     <!-- favicon -->
     <link rel="icon" href="images/phone.png">
+=======
+    <title>SmartPhone Store |  Về SmartPhone Store</title>
+    <!-- favicon -->
+    <link rel="icon" href="images/smartphone.png">
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <!-- bootstrap js -->
@@ -38,7 +44,11 @@
                     $count_search = mysqli_num_rows($run_search);
                     if($count_search==0){
             ?>
+<<<<<<< HEAD
                         <p class="fs-5 p-3">Rất tiếc, phonestore.com không tìm thấy kết quả phù hợp với từ khóa <b>"<?= $key; ?>"</b></p>
+=======
+                        <p class="fs-5 p-3">Rất tiếc, smartphonestore.com không tìm thấy kết quả phù hợp với từ khóa <b>"<?= $key; ?>"</b></p>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
                         <div class="row justify-content-end mt-5">
                             <div class="col-lg-8 col-12">
                                 <p class="fw-bold">Để tìm được kết quả chính xác hơn, bạn vui lòng: </p>

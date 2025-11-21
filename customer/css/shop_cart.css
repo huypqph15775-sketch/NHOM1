@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .cart-top a{
     text-decoration: none;
     color:#2f80ed !important;
@@ -6,19 +7,40 @@
     text-align: right;
 }
 .card{
+=======
+.cart-top a {
+    text-decoration: none;
+    color: #2fedbd !important;
+}
+
+.cart-top p {
+    text-align: right;
+}
+
+.card {
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     border-radius: 0;
     border: none;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
 
+<<<<<<< HEAD
 a.product-name{
     text-decoration: none;
 }
 span.color{
+=======
+a.product-name {
+    text-decoration: none;
+}
+
+span.color {
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     font-size: 14px;
     color: #2f80ed;
 }
 
+<<<<<<< HEAD
 .item-price{
     text-align: right;
 }
@@ -26,11 +48,27 @@ span.color{
     margin-right: 0;
 }
 .quantity{
+=======
+.item-price {
+    text-align: right;
+}
+
+.item-price strike {
+    margin-right: 0;
+}
+
+.quantity {
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     text-align: center;
     background: #fff;
     border: 1px solid #6f6f6f;
 }
+<<<<<<< HEAD
 .qtybtn{
+=======
+
+.qtybtn {
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     border: none;
     background-color: #fff;
     margin: 0 8px;
@@ -39,7 +77,12 @@ span.color{
     cursor: pointer;
     text-align: center;
 }
+<<<<<<< HEAD
 .quantity input{
+=======
+
+.quantity input {
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     padding: 10px 0px;
     width: 100%;
     font-size: 16px;
@@ -51,13 +94,20 @@ span.color{
     border-left: 1px solid #6f6f6f;
     border-right: 1px solid #6f6f6f;
 }
+<<<<<<< HEAD
 .remove-button{
     color:#6f6f6f;
+=======
+
+.remove-button {
+    color: #6f6f6f;
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     font-size: 14px;
     border: none;
     border-radius: 2px;
 }
 
+<<<<<<< HEAD
 .price-total{
     text-align: right;
 }
@@ -76,6 +126,29 @@ h6{
     border-radius: 5px;
 }
 .submit-order b{
+=======
+.price-total {
+    text-align: right;
+}
+
+h6 {
+    text-transform: uppercase;
+}
+
+.right-side .price-total {
+    color: #ff4b03;
+}
+
+.submit-order {
+    width: 100%;
+    padding: 10px 0;
+    background: linear-gradient(180deg, #f79429, #f7712e);
+    border: none;
+    border-radius: 5px;
+}
+
+.submit-order b {
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     color: #fff;
     text-transform: uppercase;
 }

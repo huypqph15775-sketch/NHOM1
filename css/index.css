@@ -1,5 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+<<<<<<< HEAD
     background: #f1f1f1;
 }
 
@@ -58,6 +59,52 @@ nav a:hover {
 }
 
 /* ===================== SEARCH + ICONS ===================== */
+=======
+    background: #ffffff;
+
+}
+
+.page-background {
+    position: fixed;
+    /* cố định toàn trang */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: url("../images/anh.png") center/cover no-repeat;
+
+    filter: blur(4px) brightness(0.6);
+    /* Nền mờ + tối dịu mắt */
+    z-index: -1;
+    /* luôn nằm dưới mọi nội dung */
+}
+
+
+/* Header */
+header nav {
+    width: 100%;
+    background-color: #15cc43;
+    box-shadow: 0 0 5px #d8212144;
+}
+
+header nav ul,
+li,
+a {
+    color: black !important;
+    border-radius: 5px;
+
+}
+
+nav a:hover {
+    color: #cfcfcf !important;
+}
+
+nav a.active {
+    color: #000000 !important;
+}
+
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 a.navbar-brand img {
     height: 100px;
 }
@@ -80,19 +127,43 @@ button.search-btn {
     right: -9px;
     top: 0;
     background-color: #f0f5f9;
+<<<<<<< HEAD
     color: #ffffff;
     border-color: #fff;
+=======
+    border-color: #fff;
+    color: #ffffff;
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 }
 
 .nav-link i {
     font-size: 20px !important;
 }
 
+<<<<<<< HEAD
+=======
+a:hover {
+    color: #ffc000;
+}
+
+/* button.search-btn:hover{
+    background-color: #fff!important;
+    color: #0099FF	!important;
+} */
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 ul.action-menu .nav-item .nav-link {
     margin: 0 15px;
     font-size: 18px;
 }
 
+<<<<<<< HEAD
+=======
+ul.dropdown-menu a li:hover {
+    color: #da0606 !important;
+    background-color: #0099FF !important;
+}
+
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 /* offcanvas for like */
 .offcanvas-body .like-img {
     height: 100px;
@@ -112,7 +183,11 @@ ul.action-menu .nav-item .nav-link {
     color: #ff0000;
 }
 
+<<<<<<< HEAD
 /* slider section */
+=======
+/* slider */
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 section.slider {
     height: 400px;
 
@@ -139,7 +214,10 @@ a.btn-order-now {
 }
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 @keyframes glowing {
     0% {
         background-color: #ffd400;
@@ -202,7 +280,11 @@ section.benefits-section .card:hover .circle {
 /* cartegory-product */
 .row_cartegory {
     margin: 0;
+<<<<<<< HEAD
     background-color: #0099FF;
+=======
+    background-color: #ff0000;
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     border-radius: 15px;
 }
 
@@ -333,6 +415,7 @@ section.cartegory_product a {
     }
 }
 
+<<<<<<< HEAD
 /* .img-box span.new_product{
     animation: newproduct 0.5s infinite;
 }
@@ -343,6 +426,10 @@ section.cartegory_product a {
   } */
 .thumb-wrapper:hover h4 {
     color: #00aeff;
+=======
+.thumb-wrapper:hover h4 {
+    color: #df0d0d;
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 }
 
 .thumb-content .btn:hover,
@@ -526,7 +613,11 @@ section.cartegory_product .owl-carousel-banner img {
 
 /* footer */
 footer {
+<<<<<<< HEAD
     border-top: 1px solid #e2e2e2;
+=======
+    border-top: 1px solid #ffffff;
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     line-height: 2;
     background-color: #0099FF;
 }
@@ -537,11 +628,19 @@ footer li {
 
 footer li a {
     text-decoration: none;
+<<<<<<< HEAD
     color: #ffffff;
 }
 
 footer li a:hover {
     color: #000000 !important;
+=======
+    color: #ffffff !important;
+}
+
+footer li a:hover {
+    color: #0099FF !important;
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 }
 
 footer .col-3 {
@@ -555,4 +654,13 @@ footer .col-3 {
 .copyright p {
     text-align: center;
     opacity: 0.3;
+<<<<<<< HEAD
+=======
+}
+
+
+.link_active {
+    background-color: #0099FF;
+    color: rgb(255, 255, 255) !important;
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 }

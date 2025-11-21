@@ -1,10 +1,20 @@
 <?php
+<<<<<<< HEAD
 require_once '../includes/auth.php';
 checkAdminLogin();
 // Chỉ admin (role_level >= 4) trở lên mới được thêm admin
 checkPermission('admin');
 ?>
 
+=======
+if(isset($_SESSION['admin_level'])){
+    if($_SESSION['admin_level']!= 'Quản lý'){
+        echo "<script>alert('Bạn không đủ quyền truy cập vào chức năng này. ')</script>";
+        echo "<script>window.open('index.php?dashboard','_self')</script>";
+    }
+}
+?>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
             <div class="row">
                 <div class="col-md-12">
                     <nav aria-label="breadcrumb">

@@ -36,6 +36,10 @@ include("includes/database.php");
         $active="Home";
         include("includes/header.php");
     ?>
+<<<<<<< HEAD
+=======
+      <div class="page-background"></div>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
 
     <!-- slider -->
     <section class="slider">
@@ -95,8 +99,13 @@ include("includes/database.php");
           </div>
     </section>
 
+<<<<<<< HEAD
     <br><br><br><br><br><br> <br> <br>
 
+=======
+    <br><br><br><br><br><br><br>
+  
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
     <!-- cartegory-product -->
     <section class="cartegory_product">
 
@@ -104,7 +113,11 @@ include("includes/database.php");
       <div style="background-color:#0099FF; border-radius: 15px;" class="container-xl mt-4">
         <div style="background-color:#0099FF; border-radius: 15px;" class="row row_cartegory pb-4">
           <div class="col-md-12 col_cartegory_sale">
+<<<<<<< HEAD
             <h2><i class="fab fa-gripfire mx-3"></i><b>KHUYẾN MÃI HOT</b></h2>
+=======
+            <h2><i class="fab fa-gripfire mx-3" style="color: #f00000ff;"></i><b style="color: #f00000ff;">KHUYẾN MÃI HOT</b></h2>
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
             <div class="owl-carousel owl-theme">
               <?php
                 $get_products = "select * from products order by 1 DESC LIMIT 0,20";

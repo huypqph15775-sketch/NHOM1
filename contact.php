@@ -42,8 +42,13 @@
                                 </div>
                                 <div class="col-lg-10 col-md-9 col-sm-9 col-9">
                                     <h3>Địa chỉ: </h3>
+<<<<<<< HEAD
                                     <p>Nguyên Xá, phường Minh Khai, 
                                         <br>quận Bắc Từ Liêm, 
+=======
+                                    <p>1 Trịnh Văn Bô, phường Phương Canh, 
+                                        <br>quận Nam Từ Liêm, 
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
                                         <br>Tp Hà Nội.</p>
                                 </div>
                             </div>
@@ -89,13 +94,22 @@
         $sender_phone = $_POST['phone'];
         $sender_email = $_POST['email'];
         $sender_content = $_POST['content'];
+<<<<<<< HEAD
         $receive_email = "doanlonghp2001@gmail.com";
+=======
+        $receive_email = "Phonestore@gmail.com";
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
         mail($receive_email, $sender_name, $sender_phone, $sender_email, $sender_content);
         // auto reply
         $email = $_POST['email'];
         $subject = "Chào mừng đến với website";
+<<<<<<< HEAD
         $msg = "Cảm ơn bạn đã gửi tin nhắn cho chúng tôi. SmartPhoneStore.com sẽ trả lời bạn.";
         $from = "doanlonghp2001@gmail.com";
+=======
+        $msg = "Cảm ơn bạn đã gửi tin nhắn cho chúng tôi. PhoneStore.com sẽ trả lời bạn.";
+        $from = "Phonestore@gmail.com";
+>>>>>>> a35a6cb48d5e68ef90dd1afcdb21499ab3f4514b
         mail($email, $subject, $msg, $from);
         echo "<h6 class='text-primary'>Tin nhắn của bạn đã được gửi thành công</h6>";
     }

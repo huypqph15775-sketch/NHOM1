@@ -1,0 +1,222 @@
+.left-container {
+    box-shadow: 0 0 5px rgb(150, 150, 150);
+}
+
+.nav-pills .nav-link {
+    color: #000;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #0099FF !important;
+}
+
+.img-account {
+    text-align: center;
+}
+
+.img-account img {
+    width: 200px;
+}
+
+#loadFile {
+    display: none
+}
+
+.nav-pills {
+    margin-right: 0 !important;
+}
+
+.myaccount-content {
+    padding: 32px 24px;
+    /* increased overall padding for more breathing room */
+}
+
+.myaccount-content form {
+    margin-top: -20px;
+}
+
+/* Ensure 'Thêm địa chỉ mới' heading and its form are spaced below the saved addresses */
+.myaccount-content h6 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.myaccount-content h3 {
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.myaccount-content p {
+    padding: 10px 0;
+}
+
+.myaccount-content .welcome a:hover {
+    color: #ff6e21;
+}
+
+.myaccount-content .welcome strong {
+    font-weight: 600;
+    color: #ff6e21;
+}
+
+a.signup {
+    color: #2f80ed !important;
+}
+
+.myaccount-content i {
+    font-size: 16px;
+    color: #f7712e;
+}
+
+#v-pills-editpw input {
+    width: 50%;
+}
+
+.breadcrumb-item a {
+    color: #0099FF !important;
+    /* match main site nav blue */
+}
+
+.breadcrumb-item a:hover {
+    color: #2f80ed !important;
+}
+
+.breadcrumb-item.active {
+    color: rgb(150, 150, 150) !important;
+}
+
+/* Make address list items responsive and avoid button overlap */
+.list-group-item .d-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 14px;
+    /* increased gap between content and controls */
+}
+
+.list-group-item .btn-group {
+    flex-shrink: 0;
+    margin-left: 12px;
+}
+
+/* Ensure the main content column in the address row can shrink and wrap
+   so long address text won't overflow into the action buttons. */
+.list-group-item .d-flex>div:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+    /* allow flex item to shrink below its content width */
+}
+
+/* Keep buttons aligned to the right and prevent overlap by forcing
+   the button group to stay on its own line when necessary. */
+.list-group-item .btn-group {
+    margin-left: auto;
+}
+
+/* Make small text wrap instead of forcing width */
+.list-group-item small {
+    white-space: normal;
+}
+
+/* Ensure radio and details stack nicely on small screens */
+.list-group-item input.form-check-input {
+    margin-top: 6px;
+}
+
+@media (max-width: 576px) {
+    .list-group-item .d-flex {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .list-group-item .btn-group {
+        margin-left: 0;
+        margin-top: 8px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+}
+
+/* Additional safeguards to avoid heading/item overlap */
+.myaccount-content h5 {
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.list-group-item {
+    min-height: 96px;
+    /* more breathing room so buttons don't sit on top of text */
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    border-radius: 6px;
+}
+
+.list-group {
+    margin-bottom: 1.75rem;
+}
+
+/* Voucher card spacing and button alignment inside My Account */
+.myaccount-content .card {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    min-height: 80px;
+}
+
+.myaccount-content .card .d-flex {
+    width: 100%;
+    align-items: center;
+    /* vertically center text and button */
+}
+
+.myaccount-content .card .d-flex>form {
+    margin-left: auto;
+    /* push button to the right */
+}
+
+.myaccount-content .card .btn {
+    padding: .35rem .6rem;
+}
+
+@media (max-width: 576px) {
+    .myaccount-content .card {
+        padding: .75rem;
+        min-height: auto;
+    }
+
+    .myaccount-content .card .d-flex {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .myaccount-content .card .d-flex>form {
+        margin-left: 0;
+        margin-top: .5rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+.myaccount-content h6+form {
+    margin-top: 1rem;
+    /* ensure the form sits clearly below the heading */
+}
+
+.list-group-item .btn-group {
+    align-self: center;
+    /* vertically center the buttons with the content */
+}
+
+@media (max-width: 576px) {
+    .list-group-item {
+        min-height: auto;
+    }
+
+    .list-group-item .btn-group {
+        align-self: flex-end;
+    }
+}

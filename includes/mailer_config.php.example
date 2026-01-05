@@ -1,0 +1,15 @@
+// Copy this file to includes/mailer_config.php and fill your SMTP credentials.
+// Do NOT commit includes/mailer_config.php to source control.
+
+<?php
+// Example Gmail SMTP config
+$smtpHost = 'smtp.gmail.com';
+$smtpUser = 'your-email@gmail.com';
+$smtpPass = 'your-app-password'; // Create App Password in Google Account if 2FA enabled
+$smtpPort = 587;
+$smtpSecure = 'tls';
+
+// Optional: set a different FROM name/address
+//$fromAddress = 'no-reply@yourdomain.com';
+//$fromName = 'PhoneStore';
+?>

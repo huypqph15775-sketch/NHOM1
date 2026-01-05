@@ -1,0 +1,74 @@
+.breadcrumb{
+    margin: 0;
+}
+.breadcrumb-link{
+    text-decoration: none;
+}
+label{
+    color: #1c00d2;
+    font-weight: 550;
+}
+textarea{
+    height: 150px;
+}
+/* ================== FORM PAGE OVERRIDE (added by ChatGPT) ================== */
+
+.breadcrumb {
+    background: transparent;
+    margin-bottom: 12px;
+}
+
+.breadcrumb-link,
+.breadcrumb .breadcrumb-item {
+    font-size: 0.86rem;
+    color: #6b7280;
+}
+
+.form-wrapper,
+.product-form-wrapper {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    padding: 20px 22px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.product-add-title {
+    font-size: 1.2rem;
+    font-weight: 650;
+    margin-bottom: 16px;
+}
+
+.form-control,
+.form-select,
+textarea {
+    border-radius: 999px;
+    border-color: rgba(148, 163, 184, 0.7);
+    padding: 8px 12px;
+    font-size: 0.92rem;
+    transition: all 0.16s ease-out;
+}
+
+textarea {
+    border-radius: 16px;
+}
+
+.form-control:focus,
+.form-select:focus,
+textarea:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+label,
+.form-label {
+    font-size: 0.86rem;
+    font-weight: 550;
+    color: #4b5563;
+}
+
+.btn-submit-product,
+.btn-primary {
+    border-radius: 999px;
+    padding: 8px 18px;
+}

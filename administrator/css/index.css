@@ -1,0 +1,861 @@
+/* ================== BASE ================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6fb;
+    /* nền xám rất nhẹ cho admin */
+}
+
+/* ================== SIDEBAR ================== */
+.sidebar-nav {
+    width: 260px !important;
+    background: #0099FF;
+    /* màu chủ đạo giống logo PhoneStore */
+    color: #ffffff;
+}
+
+/* Logo trong offcanvas / sidebar */
+.offcanvas-title img {
+    width: 60px;
+}
+
+/* Logo area: stack logo image above the role label and center */
+.sidebar-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.sidebar-logo-img {
+    width: 68px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(2, 6, 23, 0.18);
+}
+
+/* Logo text / role label below the logo image */
+.offcanvas-title .logo_name {
+    color: #ffffff;
+    font-size: 1.05rem;
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 6px 10px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(2, 6, 23, 0.18);
+    line-height: 1;
+}
+
+/* Slightly smaller on small screens */
+@media (max-width: 576px) {
+    .offcanvas-title .logo_name {
+        font-size: 0.95rem;
+        padding: 4px 8px;
+    }
+
+    .sidebar-logo-img {
+        width: 56px;
+    }
+}
+
+/* Role-specific text colors/backgrounds */
+.offcanvas-title .role-admin {
+    color: #60a5fa;
+    /* sky blue */
+    background: rgba(96, 165, 250, 0.08);
+}
+
+.offcanvas-title .role-sales {
+    color: #16a34a;
+    /* green */
+    background: rgba(16, 163, 82, 0.08);
+}
+
+.offcanvas-title .role-warehouse {
+    color: #f97316;
+    /* orange */
+    background: rgba(249, 115, 22, 0.08);
+}
+
+/* Wrapper của menu trong sidebar (Bootstrap thường dùng .navbar-nav) */
+.sidebar-nav .navbar-nav {
+    padding: 0.75rem 0.5rem;
+}
+
+/* Link trong menu sidebar */
+.sidebar-nav .navbar-nav .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #eaf5ff;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 0.55rem 0.9rem;
+    border-radius: 8px;
+    margin: 2px 6px;
+    background: transparent;
+    border: none;
+}
+
+/* Icon bên trái */
+.sidebar-nav .navbar-nav .nav-link i,
+.sidebar-nav .navbar-nav .nav-link svg {
+    font-size: 18px;
+    /* make icons visually prominent: bright color, circular background */
+    color: #ffd54f;
+    /* warm amber */
+    background: rgba(255, 213, 79, 0.12);
+    padding: 8px;
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 8px 22px rgba(2, 6, 23, 0.18);
+}
+
+/* Icon mũi tên bên phải (dropdown) */
+.sidebar-link {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar-link .right-icon {
+    display: inline-flex;
+    margin-left: auto;
+    transition: all ease 0.3s;
+}
+
+.sidebar-link[aria-expanded="true"] .right-icon {
+    transform: rotate(180deg);
+}
+
+/* Hover: chỉ sáng nhẹ, không đổi layout */
+.sidebar-nav .navbar-nav .nav-link:hover {
+    background: #ffffff;
+    color: #0099FF;
+}
+
+/* Make icon change when link is hovered or active to improve contrast */
+.sidebar-nav .navbar-nav .nav-link:hover i,
+.sidebar-nav .navbar-nav .nav-link:hover svg,
+.sidebar-nav .navbar-nav .nav-link.active i,
+.sidebar-nav .navbar-nav .nav-link.active svg {
+    color: #ffffff;
+    background: var(--ps-primary-dark, #1d4ed8);
+    box-shadow: 0 12px 30px rgba(29, 78, 216, 0.18);
+}
+
+/* Active: mục đang đứng */
+.sidebar-nav .navbar-nav .nav-link.active,
+.sidebar-nav .navbar-nav .nav-link.show {
+    background: #ffffff;
+    color: #0099FF;
+}
+
+/* Nhóm tiêu đề trong sidebar (nếu có) */
+.sidebar-nav .text-muted,
+.sidebar-nav .nav-section-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #b9ddff;
+    padding: 0.75rem 1rem 0.25rem;
+}
+
+/* ================== LAYOUT PC (>= 992px) ================== */
+@media (min-width: 992px) {
+    body {
+        overflow: auto !important;
+    }
+
+    /* Tắt mờ nền của offcanvas khi ở chế độ desktop */
+    .offcanvas-backdrop::before {
+        display: none;
+    }
+
+    /* Nội dung chính lệch sang phải 260px để chừa chỗ sidebar */
+    section,
+    main,
+    .admin-content {
+        margin-left: 260px;
+        padding: 20px 24px;
+    }
+
+    .sidebar-nav {
+        transform: none;
+        /* luôn hiện ở PC */
+        visibility: visible !important;
+        top: 56px;
+        /* cao bằng navbar trên admin (nếu có) */
+        height: calc(100vh - 56px);
+        /* fix lại: chiếm hết chiều cao màn hình trừ header */
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+    }
+}
+
+/* ================== TOP NAVBAR (NẾU CÓ) ================== */
+.navbar.admin-topbar {
+    background: #ffffff;
+    box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+.navbar.admin-topbar .navbar-brand {
+    font-weight: 700;
+    color: #0099FF;
+}
+
+.navbar.admin-topbar .nav-link {
+    color: #4b5563;
+    font-weight: 500;
+}
+
+.navbar.admin-topbar .nav-link:hover {
+    color: #0099FF;
+}
+
+/* ================== DASHBOARD CARD ================== */
+.card {
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    background: #ffffff;
+}
+
+.card .card-title {
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 0.25rem;
+}
+
+.card .card-footer {
+    background: transparent;
+    border-top: 0;
+}
+
+/* Thẻ thống kê (số đơn, doanh thu...) – nếu muốn dùng 1 style chung */
+.card-stat {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-stat .icon-bg {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    opacity: 0.15;
+    font-size: 60px;
+}
+
+/* Màu gợi ý cho từng loại (nếu anh muốn bỏ inline-style trong dashboard.php thì dùng class này) */
+.card-stat.primary {
+    background: linear-gradient(135deg, #0099FF, #00c9ff);
+    color: #ffffff;
+}
+
+.card-stat.success {
+    background: linear-gradient(135deg, #22c55e, #4ade80);
+    color: #ffffff;
+}
+
+.card-stat.warning {
+    background: linear-gradient(135deg, #facc15, #f97316);
+    color: #ffffff;
+}
+
+.card-stat.danger {
+    background: linear-gradient(135deg, #ef4444, #f97373);
+    color: #ffffff;
+}
+
+/* ================== BẢNG, TEXT PHỤ ================== */
+.table thead {
+    background: #eff6ff;
+}
+
+.table thead th {
+    border-bottom-width: 0;
+    color: #374151;
+    font-weight: 600;
+}
+
+.table tbody tr:hover {
+    background: #f9fafb;
+}
+
+/* Badge trạng thái đơn hàng... */
+.badge-status {
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.badge-status.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+/* ================== NOTIFICATIONS ADD FORM ================== */
+.notifications-add-wrapper {
+    max-width: 980px;
+    margin: 12px auto 40px;
+    background: #ffffff;
+    padding: 22px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.notifications-add-wrapper h3 {
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: #0f172a;
+}
+
+.notifications-add-wrapper .form-label {
+    font-weight: 600;
+    color: #374151;
+}
+
+.notifications-add-wrapper .form-control,
+.notifications-add-wrapper .form-select,
+.notifications-add-wrapper textarea {
+    border-radius: 8px;
+    border: 1px solid #e6edf3;
+    padding: 10px 12px;
+    background: #fbfdff;
+}
+
+/* News add page: make the main content textarea square (no border-radius) */
+.container-lg textarea[name="content"] {
+    border-radius: 0 !important;
+}
+
+.notifications-add-wrapper select[multiple] {
+    min-height: 160px;
+}
+
+.notifications-add-wrapper .form-check-label {
+    color: #374151;
+}
+
+.notifications-add-wrapper .btn+.btn {
+    margin-left: 8px;
+}
+
+@media (max-width: 991px) {
+    .notifications-add-wrapper {
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 16px;
+    }
+}
+
+/* small helper to improve spacing in admin content area */
+.admin-content .notifications-add-wrapper {
+    margin-top: 8px;
+}
+
+
+.badge-status.shipping {
+    background: #e0f2fe;
+    color: #1d4ed8;
+}
+
+.badge-status.done {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-status.cancel {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* ================== MODERN THEME OVERRIDE (added by ChatGPT) ================== */
+:root {
+    --ps-bg: #f3f4f6;
+    --ps-bg-soft: #e5e7eb;
+    --ps-card: #ffffff;
+    --ps-border: #e5e7eb;
+    --ps-primary: #2563eb;
+    --ps-primary-soft: #dbeafe;
+    --ps-primary-dark: #1d4ed8;
+    --ps-accent: #0ea5e9;
+    --ps-text-main: #0f172a;
+    --ps-text-muted: #6b7280;
+    --ps-danger: #ef4444;
+    --ps-success: #16a34a;
+    --ps-warning: #f97316;
+    --ps-shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+    --ps-radius-lg: 18px;
+    --ps-radius-md: 12px;
+}
+
+/* Base */
+
+/* Admin: make form controls and buttons square (no rounded corners) */
+.admin-content .form-control,
+.admin-content .form-select,
+.admin-content textarea,
+.admin-content .btn {
+    border-radius: 0 !important;
+}
+
+
+body {
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+    background: radial-gradient(circle at top left, #eff6ff 0, #f9fafb 40%, #f3f4f6 100%);
+    color: var(--ps-text-main);
+}
+
+/* Layout */
+
+.main-wrapper,
+.container-fluid {
+    background: transparent;
+}
+
+.content-wrapper {
+    background: transparent;
+    padding: 20px 24px 32px;
+}
+
+/* Sidebar */
+
+.sidebar-nav {
+    background: linear-gradient(150deg, #0f172a 0%, #1d4ed8 50%, #0ea5e9 100%) !important;
+    box-shadow: 0 20px 50px rgba(15, 23, 42, 0.55);
+}
+
+/* Offcanvas header/body styles for the sidebar (replace previous inline gray) */
+.sidebar-nav .offcanvas-header {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+    padding: 18px 14px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar-nav .offcanvas-body {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.00));
+    padding: 12px 10px 18px 10px;
+}
+
+/* Slight visual separation for the logo area */
+.sidebar-logo {
+    width: 100%;
+    text-align: center;
+}
+
+
+.sidebar-nav .navbar-nav {
+    padding: 10px 10px 18px;
+}
+
+.sidebar-nav .nav-link {
+    border-radius: 999px;
+    padding: 10px 14px;
+    margin: 3px 4px;
+    font-size: 0.93rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #e5e7eb;
+    transition: all 0.18s ease-out;
+}
+
+.sidebar-nav .nav-link i {
+    font-size: 1.05rem;
+}
+
+.sidebar-nav .nav-link:hover {
+    background: rgba(15, 23, 42, 0.12);
+    color: #ffffff;
+    transform: translateX(2px);
+}
+
+.sidebar-nav .nav-link.active,
+.sidebar-nav .nav-link[aria-current="page"] {
+    background: #ffffff;
+    color: var(--ps-primary-dark);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.35);
+}
+
+/* Topbar / header */
+
+.navbar,
+.admin-header {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.admin-header {
+    border-radius: 999px;
+    padding: 10px 18px;
+    margin-bottom: 18px;
+    box-shadow: 0 16px 40px rgba(148, 163, 184, 0.45);
+}
+
+.admin-header .page-title {
+    font-size: 1.4rem;
+    font-weight: 650;
+    letter-spacing: 0.02em;
+}
+
+.user-info,
+.navbar .dropdown-toggle {
+    font-size: 0.9rem;
+    color: var(--ps-text-muted);
+}
+
+.user-info span strong,
+.user-info span b {
+    color: var(--ps-text-main);
+}
+
+/* Cards */
+
+.card,
+.card-stat {
+    background: var(--ps-card);
+    border-radius: var(--ps-radius-lg);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    box-shadow: var(--ps-shadow-soft);
+    overflow: hidden;
+}
+
+.card-header {
+    background: linear-gradient(to right, #eff6ff, #ffffff);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+    padding: 14px 18px;
+}
+
+.card-header h5,
+.card-header h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 630;
+}
+
+.card-body {
+    padding: 18px 18px 20px;
+}
+
+/* Statistic cards */
+
+.card-stat {
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.card-stat .stat-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ps-text-muted);
+}
+
+.card-stat .stat-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.card-stat.primary {
+    background: linear-gradient(135deg, #1d4ed8, #0ea5e9);
+    color: #ffffff;
+}
+
+.card-stat.success {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    color: #ffffff;
+}
+
+.card-stat.warning {
+    background: linear-gradient(135deg, #f97316, #ea580c);
+    color: #ffffff;
+}
+
+/* Tables */
+
+.table {
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: var(--ps-radius-md);
+    overflow: hidden;
+}
+
+.table thead {
+    background: #eff6ff;
+}
+
+.table thead th {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.6);
+    color: var(--ps-text-muted);
+}
+
+.table tbody tr {
+    transition: background 0.14s ease-out, transform 0.14s ease-out, box-shadow 0.14s ease-out;
+}
+
+.table tbody tr:hover {
+    background: #f9fafb;
+    transform: translateY(-1px);
+}
+
+/* Buttons */
+
+.btn,
+button.btn {
+    border-radius: 999px;
+    font-size: 0.9rem;
+    padding: 7px 15px;
+    border-width: 1px;
+    font-weight: 500;
+    transition: all 0.16s ease-out;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    border-color: #2563eb;
+    box-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8, #0284c7);
+    border-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+    color: var(--ps-primary-dark);
+    border-color: rgba(37, 99, 235, 0.5);
+    background: rgba(219, 234, 254, 0.6);
+}
+
+.btn-outline-primary:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #f97373, #ef4444);
+    border-color: #ef4444;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    border-color: #b91c1c;
+}
+
+.btn-success {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-color: #16a34a;
+}
+
+.btn-success:hover {
+    background: linear-gradient(135deg, #16a34a, #15803d);
+    border-color: #15803d;
+}
+
+/* Forms */
+
+.form-control,
+.form-select {
+    border-radius: 999px;
+    border-color: rgba(148, 163, 184, 0.7);
+    padding: 8px 12px;
+    font-size: 0.92rem;
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    transition: all 0.16s ease-out;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.18);
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 550;
+    color: var(--ps-text-muted);
+}
+
+/* Badges & status */
+
+.badge-status.new {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.badge-status.shipping {
+    background: #e0f2fe;
+    color: #1d4ed8;
+}
+
+.badge-status.done {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.badge-status.cancel {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+/* Breadcrumbs */
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.breadcrumb .breadcrumb-item,
+.breadcrumb-link {
+    font-size: 0.86rem;
+    color: var(--ps-text-muted);
+}
+
+.breadcrumb .breadcrumb-item.active,
+.breadcrumb-link.active {
+    color: var(--ps-primary-dark);
+}
+
+/* Pagination */
+
+.pagination .page-link {
+    border-radius: 999px !important;
+    border: 1px solid rgba(148, 163, 184, 0.7);
+    font-size: 0.86rem;
+}
+
+.pagination .page-item.active .page-link {
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    border-color: #2563eb;
+    color: #ffffff;
+}
+
+/* Small hover details for row actions */
+
+.table .btn-action {
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+}
+
+.table .btn-action:hover {
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.25);
+}
+
+/* ================== FORCE OVERRIDE FOR OLD INLINE COLORS ================== */
+/* Nền tổng thể admin */
+body {
+    background: radial-gradient(circle at top left, #eff6ff 0, #f9fafb 40%, #f3f4f6 100%) !important;
+    color: #0f172a;
+}
+
+/* Navbar trên cùng */
+.navbar.navbar-dark {
+    background: rgba(15, 23, 42, 0.98) !important;
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+/* Offcanvas sidebar */
+.offcanvas.sidebar-nav {
+    background: linear-gradient(150deg, #0f172a 0%, #1d4ed8 45%, #0ea5e9 100%) !important;
+}
+
+.offcanvas.sidebar-nav .offcanvas-header {
+    background: transparent !important;
+}
+
+.offcanvas.sidebar-nav .offcanvas-title img {
+    border-radius: 16px;
+}
+
+.offcanvas.sidebar-nav .nav-link {
+    border-radius: 999px;
+    margin: 4px 2px;
+    padding: 9px 14px;
+    color: #e5e7eb !important;
+    transition: all 0.16s ease-out;
+}
+
+.offcanvas.sidebar-nav .nav-link:hover {
+    background: rgba(15, 23, 42, 0.16);
+    color: #ffffff !important;
+    transform: translateX(2px);
+}
+
+.offcanvas.sidebar-nav .nav-link.active,
+.offcanvas.sidebar-nav .nav-link[aria-current="page"] {
+    background: #ffffff !important;
+    color: #1d4ed8 !important;
+}
+
+/* Dashboard tiles (Trang chủ) */
+.container-fluid.mt-5.pt-3 .row.mt-5>.col-md-3 .card {
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+    border: none;
+}
+
+/* từng ô theo vị trí (1 -> 7) */
+.container-fluid.mt-5.pt-3 .row.mt-5>.col-md-3:nth-of-type(1) .card {
+    background: linear-gradient(135deg, #2563eb, #0ea5e9) !important;
+}
+
+.container-fluid.mt-5.pt-3 .row.mt-5>.col-md-3:nth-of-type(2) .card {
+    background: linear-gradient(135deg, #0ea5e9, #22c55e) !important;
+}
+
+.container-fluid.mt-5.pt-3 .row.mt-5>.col-md-3:nth-of-type(3) .card {
+    background: linear-gradient(135deg, #f97316, #facc15) !important;
+    color: #111827 !important;
+}
+
+.container-fluid.mt-5.pt-3 .row.mt-5>.col-md-3:nth-of-type(4) .card {
+    background: linear-gradient(135deg, #f97316, #ef4444) !important;
+}
+
+.container-fluid.mt-5.pt-3 .row.mt-5>.col-md-3:nth-of-type(5) .card {
+    background: linear-gradient(135deg, #ec4899, #6366f1) !important;
+}
+
+.container-fluid.mt-5.pt-3 .row.mt-5>.col-md-3:nth-of-type(6) .card {
+    background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+}
+
+.container-fluid.mt-5.pt-3 .row.mt-5>.col-md-3:nth-of-type(7) .card {
+    background: linear-gradient(135deg, #14b8a6, #0f766e) !important;
+}
+
+/* Text trong tile */
+.container-fluid.mt-5.pt-3 .row.mt-5 .card .card-title {
+    font-size: 1.1rem;
+    font-weight: 650;
+}
+
+.container-fluid.mt-5.pt-3 .row.mt-5 .card .card-footer a {
+    font-weight: 500;
+}
+
+/* Bảng & form nói chung vẫn giữ tông mới */

@@ -1,0 +1,6 @@
+2025-12-08T21:04:12+07:00 - IP=::1 - code=undefined - customer_id=5 - debug={"exists":false}
+2025-12-08T21:04:21+07:00 - IP=::1 - code=undefined - customer_id=5 - debug={"exists":false}
+2025-12-08T21:12:22+07:00 - IP=::1 - code=undefined - customer_id=5 - debug={"exists":false}
+2025-12-08T21:12:34+07:00 - IP=::1 - code=undefined - customer_id=5 - debug={"exists":false}
+2025-12-08T21:12:42+07:00 - IP=::1 - code=undefined - customer_id=5 - debug={"exists":false}
+2025-12-09T08:17:23+07:00 - IP=::1 - code=Test - customer_id=5 - debug={"exists":true,"row":{"status":"active","quantity":1,"start_date":"2025-12-08","end_date":"2025-12-18","discount_percent":20,"discount_amount":0,"min_order":0,"max_discount":0}}

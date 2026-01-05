@@ -1,0 +1,132 @@
+2025-12-09 03:32:20
+REQUEST: {"product_id":"25","product_color":"X\u00e1m","quantity":"1","favorite_product_id":"25","product_color_id":"8"}
+RESPONSE: {"success":false,"message":"S\u1ea3n ph\u1ea9m \u0111\u00e3 c\u00f3 trong gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-09 03:32:35
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-10 18:03:37
+REQUEST: {"product_id":"21","product_color":"\u0110en","quantity":"1","favorite_product_id":"21","product_color_id":"4"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-10 18:21:27
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":2}
+---
+2025-12-10 18:28:16
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":false,"message":"S\u1ea3n ph\u1ea9m \u0111\u00e3 c\u00f3 trong gi\u1ecf h\u00e0ng","items_count":2}
+---
+2025-12-10 18:28:22
+REQUEST: {"product_id":"15","product_color":"T\u00edm","quantity":"1","favorite_product_id":"15","product_color_id":"9"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":3}
+---
+2025-12-10 18:28:26
+REQUEST: {"product_id":"15","product_color":"Tr\u1eafng","quantity":"1","favorite_product_id":"15","product_color_id":"3"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":4}
+---
+2025-12-19 13:56:56
+REQUEST: {"product_id":"28","product_color":"Xanh lam","quantity":"1","favorite_product_id":"28","product_color_id":"2"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":2}
+---
+2025-12-19 13:57:28
+REQUEST: {"product_id":"25","product_color":"X\u00e1m","quantity":"1","favorite_product_id":"25","product_color_id":"8"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":3}
+---
+2025-12-19 13:59:32
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-19 16:53:41
+REQUEST: {"product_id":"28","product_color":"Xanh lam","quantity":"1","favorite_product_id":"28","product_color_id":"2"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-20 04:18:33
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":false,"message":"S\u1ea3n ph\u1ea9m \u0111\u00e3 c\u00f3 trong gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-20 04:19:26
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-25 02:24:56
+REQUEST: {"product_id":"17","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"17","product_color_id":"7"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":2}
+---
+2025-12-25 02:49:20
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-25 02:49:32
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":false,"message":"S\u1ea3n ph\u1ea9m \u0111\u00e3 c\u00f3 trong gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-25 02:49:50
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":false,"message":"S\u1ea3n ph\u1ea9m \u0111\u00e3 c\u00f3 trong gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-25 02:50:17
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":false,"message":"S\u1ea3n ph\u1ea9m \u0111\u00e3 c\u00f3 trong gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-25 02:50:59
+REQUEST: {"product_id":"25","product_color":"X\u00e1m","quantity":"1","favorite_product_id":"25","product_color_id":"8"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":4}
+---
+2025-12-25 02:57:08
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":false,"message":"S\u1ea3n ph\u1ea9m \u0111\u00e3 c\u00f3 trong gi\u1ecf h\u00e0ng","items_count":4}
+---
+2025-12-25 02:57:11
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1","favorite_product_id":"27","product_color_id":"7"}
+RESPONSE: {"success":false,"message":"S\u1ea3n ph\u1ea9m \u0111\u00e3 c\u00f3 trong gi\u1ecf h\u00e0ng","items_count":4}
+---
+2025-12-25 03:08:03
+REQUEST: {"product_id":"28","product_color":"Xanh lam","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":5}
+---
+2025-12-26 15:44:42
+REQUEST: {"product_id":"30","product_color":"\u0110\u1ecf","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-26 15:49:08
+REQUEST: {"product_id":"30","product_color":"\u0110\u1ecf","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-26 16:44:23
+REQUEST: {"product_id":"19","product_color":"V\u00e0ng","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-26 16:44:46
+REQUEST: {"product_id":"19","product_color":"V\u00e0ng","quantity":"1"}
+RESPONSE: {"success":false,"message":"S\u1ea3n ph\u1ea9m \u0111\u00e3 c\u00f3 trong gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-26 16:45:03
+REQUEST: {"product_id":"18","product_color":"Tr\u1eafng","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":2}
+---
+2025-12-26 17:05:17
+REQUEST: {"product_id":"30","product_color":"\u0110\u1ecf","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-27 03:13:02
+REQUEST: {"product_id":"27","product_color":"Xanh l\u1ee5c","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-31 15:15:01
+REQUEST: {"product_id":"25","product_color":"X\u00e1m","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-31 15:16:33
+REQUEST: {"product_id":"18","product_color":"Tr\u1eafng","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
+2025-12-31 16:27:58
+REQUEST: {"product_id":"30","product_color":"\u0110\u1ecf","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":2}
+---
+2025-12-31 19:42:32
+REQUEST: {"product_id":"28","product_color":"Xanh lam","quantity":"1"}
+RESPONSE: {"success":true,"message":"\u0110\u00e3 th\u00eam v\u00e0o gi\u1ecf h\u00e0ng","items_count":1}
+---
